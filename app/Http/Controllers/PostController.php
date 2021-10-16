@@ -9,7 +9,7 @@ use App\Post;
 class PostController extends Controller
 {
     public function index(Post $post){
-        $data = $post->updateNewerThan()->limit(10)->get();
+        $data = $post->updateNewerThan()->Paginate(5);
         return view('posts.index',['data'=>$data]);
 
     }

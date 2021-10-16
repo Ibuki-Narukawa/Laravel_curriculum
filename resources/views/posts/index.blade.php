@@ -23,6 +23,8 @@
             </div>
             @endforeach
         </div>
-        
+        <div class="pagination">
+            {{ $data->links() }}   
+        </div>
     </body>
 </html>
