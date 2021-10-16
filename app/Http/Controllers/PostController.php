@@ -9,8 +9,8 @@ use App\Post;
 class PostController extends Controller
 {
     public function index(Post $post){
-        
-        return view('posts.index')->with(['data'=>$post->get()]);
+        $data = $post->updateNewerThan()->limit(10)->get();
+        return view('posts.index',['data'=>$data]);
 
     }
     
