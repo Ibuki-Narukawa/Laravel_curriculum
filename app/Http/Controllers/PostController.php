@@ -9,6 +9,10 @@ use App\Post;
 class PostController extends Controller
 {
     public function index(Post $post){
-    return $post->get();;   
+        $data = $post->updateNewerThan()->Paginate(5);
+        return view('posts.index',['data'=>$data]);
+
     }
+    
+    
 }
