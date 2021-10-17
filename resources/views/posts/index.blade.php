@@ -1,4 +1,5 @@
-<html>
+<!DOCTYPE HTML>
+<html lang="{{ str_replace("_", "-", app()->getLocale()) }}">
     <head>
         <title>Posts/Index</title>
         <style>
@@ -10,15 +11,15 @@
         </style>
     </head>
     <body>
-        <h1>Blog</h1>
+        <h1>Blog Index</h1>
         <div class='posts'>
             @foreach($data as $post)
             <div class='post'>
                 <div class='title'>
-                    <h2>{{$post['title']}}</h2>
+                    <h2><a href='/posts/{{$post->id}}'>{{$post->title}}</a></h2>
                 </div>
                 <div class='body'>
-                    <p>{{$post['body']}}</p>
+                    <p>{{$post->body}}</p>
                 </div>
             </div>
             @endforeach
