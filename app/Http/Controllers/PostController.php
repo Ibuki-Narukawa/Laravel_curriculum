@@ -16,8 +16,8 @@ class PostController extends Controller
 
     }
     
-    public function show($id){
-        $post=Post::find($id);
+    public function show(Request $request){
+        $post=Post::find($request->id);
         return view('posts.show',['post'=>$post]);
     }
     
@@ -27,6 +27,18 @@ class PostController extends Controller
     
     public function store(PostRequest $request){
         $post = new Post;
+        $form = $request->all();
+        $post->fill($form)->save();
+        return redirect('/posts/'.$post->id);
+    }
+    
+    public function edit(Request $request){
+        $post = Post::find($request->id);
+        return view('posts.edit',['form'=>$post]);
+    }
+    
+    public function update(PostRequest $request){
+        $post = Post::find($request->id);
         $form = $request->all();
         $post->fill($form)->save();
         return redirect('/posts/'.$post->id);
