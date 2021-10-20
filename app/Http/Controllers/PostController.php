@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Post;
 
+use App\Http\Requests\PostRequest;
+
 class PostController extends Controller
 {
     public function index(Post $post){
@@ -17,5 +19,19 @@ class PostController extends Controller
     public function show($id){
         $post=Post::find($id);
         return view('posts.show',['post'=>$post]);
+    }
+    
+    public function create(){
+        return view('posts.create');
+    }
+    
+    public function store(PostRequest $request){
+        $post = new Post;
+        $form = $request->all();
+        unset($form['_token']);
+        $post->created_at = now();
+        $post->updated_at = now();
+        $post->fill($form)->save();
+        return redirect('/posts/'.$post->id);
     }
 }

@@ -11,7 +11,10 @@
         </style>
     </head>
     <body>
-        <h1>Blog Index</h1>
+        <h1>Blog List</h1>
+        <div class='createBlog'>
+            <h3><a href='/posts/create'>[Create]</a></h3>
+        </div>
         <div class='posts'>
             @foreach($data as $post)
             <div class='post'>
