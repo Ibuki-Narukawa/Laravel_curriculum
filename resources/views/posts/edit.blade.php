@@ -68,9 +68,10 @@
         <p>入力に問題があります。再入力してください。</p>
         @endif
         <div class='post'>
-            <form action='/posts/create' method='post'>
+            <form action='/posts/{{$form->id}}' method='post'>
             <table>
                 @csrf
+                @method('put')
                 @if($errors->has('title'))
                 <tr><td class='errorMessage'>Error:{{$errors->first('title')}}</td></tr>
                 @endif
@@ -78,7 +79,7 @@
                     <th>title:</th>
                 </tr>
                 <tr>
-                    <td><input class='title'type='text' name='title' placeholder='タイトル' value={{$form->title}}></td>
+                    <td><input class='title'type='text' name='title' placeholder='タイトル' value={{old('title',$form->title)}}></td>
                 </tr>
                 @if($errors->has('body'))
                 <tr><td class='errorMessage'>Error:{{$errors->first('body')}}</td></tr>
@@ -87,7 +88,7 @@
                     <th>body:</th>
                 </tr>
                 <tr>
-                    <td><textarea class='body' name='body' placeholder='今日も1日お疲れ様でした。'>{{$form->body}}</textarea></td>
+                    <td><textarea class='body' name='body' placeholder='今日も1日お疲れ様でした。'>{{old('body',$form->body)}}</textarea></td>
                 </tr>
             </table>
             <p class='btn'><input type='submit' value='update'></p>

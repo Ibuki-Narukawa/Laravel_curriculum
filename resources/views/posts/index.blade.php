@@ -3,11 +3,43 @@
     <head>
         <title>Posts/Index</title>
         <style>
-            body {front-size:16px; color:#999;}
-            h1 {font-size:50px; color:#f6f6f6; margin:20px;}
-            h2 {margin: -1px 0px;} 
-            .post {border:2px solid; padding:0px 5px; margin-bottom:20px;}
-            .title {border-bottom:2px solid;}
+            body {
+                front-size:16px;
+                color:#999;
+                }
+            h1 {
+                font-size:50px; 
+                color:#f6f6f6; 
+                margin:20px;
+                text-align:center;
+                }
+            .post {
+                padding:0px 5px;
+                width:60%;
+                margin:0 auto;
+                margin-bottom:20px;
+                }
+            .createBlog {
+                text-align:center;
+                }
+            .pagination{
+                text-align: center;
+                list-style-type: none;
+                }
+            th {
+                background-color:#999;
+                color:#fff;
+                padding:5px; 
+                text-align:left;
+                width:100vw;
+                }
+            td {
+                border:solid 1px #aaa; 
+                color:#999; 
+                text-align:left;
+                padding:10px;
+                width:100vw;
+                }
         </style>
     </head>
     <body>
@@ -18,17 +50,19 @@
         <div class='posts'>
             @foreach($data as $post)
             <div class='post'>
+                <table>
                 <div class='title'>
-                    <h2><a href='/posts/{{$post->id}}'>{{$post->title}}</a></h2>
+                    <tr><th><a href='/posts/{{$post->id}}'>{{$post->title}}</a></th></tr>
                 </div>
                 <div class='body'>
-                    <p>{{$post->body}}</p>
+                    <tr><td>{{$post->body}}</td></tr>
                 </div>
+                </table>
             </div>
             @endforeach
         </div>
-        <div class="pagination">
-            {{ $data->links() }}   
-        </div>
+        <p class='pagination'>
+            {{$data->links()}}
+        </p>
     </body>
 </html>

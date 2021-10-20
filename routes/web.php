@@ -21,8 +21,8 @@ Route::get('/posts/create','PostController@create');
 
 Route::post('/posts/create','PostController@store');
 
-Route::get('/posts/{id?}','PostController@show');
+Route::get('/posts/{id}','PostController@show');
 
-Route::get('/posts/{id?}/edit','PostController@edit');
+Route::get('/posts/{id}/edit','PostController@edit');
 
-Route::post('/posts/{id?}/edit','PostController@update');
+Route::put('/posts/{id}','PostController@update');
