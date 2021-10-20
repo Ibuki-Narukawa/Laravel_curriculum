@@ -11,17 +11,7 @@ class PostRequest extends FormRequest
      *
      * @return bool
      */
-    public function authorize()
-    {
-        if($this->path() == 'posts/create'){
-            return true;
-        }
-        
-        else{
-            return false;
-        }
-    }
-
+     
     /**
      * Get the validation rules that apply to the request.
      *
