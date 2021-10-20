@@ -28,9 +28,6 @@ class PostController extends Controller
     public function store(PostRequest $request){
         $post = new Post;
         $form = $request->all();
-        unset($form['_token']);
-        $post->created_at = now();
-        $post->updated_at = now();
         $post->fill($form)->save();
         return redirect('/posts/'.$post->id);
     }
