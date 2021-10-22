@@ -59,8 +59,8 @@
                 <div class='title'>
                     <tr><th><a href='/posts/{{$post->id}}'>{{$post->title}}</a></th></tr>
                 </div>
-                <div class='body'>
-                    <tr><td>{{$post->body}}</td></tr>
+                <div class='contents'>
+                    <tr><td>{{$post->contents}}</td></tr>
                 </div>
                 </table>
             </div>
