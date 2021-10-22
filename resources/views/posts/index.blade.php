@@ -22,9 +22,14 @@
             .createBlog {
                 text-align:center;
                 }
+            .foot {
+                width:60%;
+                margin:0 auto;
+                }
             .pagination{
-                text-align: center;
                 list-style-type: none;
+                display:flex;
+                margin-left:-40px;
                 }
             th {
                 background-color:#999;
@@ -45,7 +50,7 @@
     <body>
         <h1>Blog List</h1>
         <div class='createBlog'>
-            <h3><a href='/posts/create'>[Create]</a></h3>
+            <h3>[<a href='/posts/create'>Create</a>]</h3>
         </div>
         <div class='posts'>
             @foreach($data as $post)
@@ -61,8 +66,10 @@
             </div>
             @endforeach
         </div>
-        <p class='pagination'>
+        <div class='foot'>
+            <p class='pagination'>
             {{$data->links()}}
-        </p>
+            </p>  
+        </div>
     </body>
 </html>
