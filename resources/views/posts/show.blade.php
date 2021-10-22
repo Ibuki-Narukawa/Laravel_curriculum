@@ -13,8 +13,14 @@
                 margin:20px;
                 text-align:center;
                 }
-            .editBlog {
+            .operationBar {
+                width:25%;
+                margin:0 auto;
+                display:flex;
+                }
+            .btn {
                 text-align:center;
+                width:50%;
                 }
             .post {
                 padding:0px 5px;
@@ -44,8 +50,18 @@
     </head>
     <body>
         <h1>Blog Show</h1>
-        <div class='editBlog'>
-            <h3><a href='/posts/{{$post->id}}/edit'>[Edit]</a></h3>
+        <div class='operationBar'>
+            <div class='editBtn btn'>
+                <h3>[<a href='/posts/{{$post->id}}/edit'>Edit</a>]</h3>
+            </div>
+            <div class='deleteBtn btn'>
+                <form action='/posts/{{$post->id}}' id='form_delete' method='post'>
+                    @csrf
+                    @method('delete')
+                    <input type='submit' style='display:none'>
+                    <h3>[<span onclick='return deletePost(this);'>Delete</span>]</h3>
+                </form>
+            </div>    
         </div>
         <div class='post'>
             <table>
@@ -61,7 +77,15 @@
             </table>
         </div>
         <div class='footer'>
-            <a href='/posts'>[back]</a>   
+            <p>[<a href='/posts'>back</a>]</p>   
         </div>
+        <script>
+            function deletePost(e){
+                'use strict';
+                if(confirm('本当にこの投稿を削除しますか？')){
+                document.getElementById('form_delete').submit();
+                }
+            }
+        </script>
     </body>
 </html>

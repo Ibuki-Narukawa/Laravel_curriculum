@@ -43,4 +43,10 @@ class PostController extends Controller
         $post->fill($form)->save();
         return redirect('/posts/'.$post->id);
     }
+    
+    public function destroy(Request $request){
+        $post = Post::find($request->id);
+        $post->delete();
+        return redirect('/posts');
+    }
 }

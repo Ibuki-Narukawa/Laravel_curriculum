@@ -95,7 +95,7 @@
             </form>
         </div>
         <div class='footer'>
-            <a href='/posts'>[back]</a>   
+            <p>[<a href='/posts'>back</a>]</p>  
         </div>
     </body>
 </html>
