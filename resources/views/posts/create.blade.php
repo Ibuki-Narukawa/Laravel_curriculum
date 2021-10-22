@@ -26,7 +26,7 @@
             .title {
                 width:97%;
                 }
-            .body {
+            .contents {
                 width:97%;
                 height:100px;
                 margin-top:7px;
@@ -80,14 +80,14 @@
                 <tr>
                     <td><input class='title'type='text' name='title' placeholder='タイトル' value={{old('title')}}></td>
                 </tr>
-                @if($errors->has('body'))
-                <tr><td class='errorMessage'>Error:{{$errors->first('body')}}</td></tr>
+                @if($errors->has('contents'))
+                <tr><td class='errorMessage'>Error:{{$errors->first('contents')}}</td></tr>
                 @endif
                 <tr>
-                    <th>body:</th>
+                    <th>contents:</th>
                 </tr>
                 <tr>
-                    <td><textarea class='body' name='body' placeholder='今日も1日お疲れ様でした。'>{{old('body')}}</textarea></td>
+                    <td><textarea class='contents' name='contents' placeholder='今日も1日お疲れ様でした。'>{{old('contents')}}</textarea></td>
                 </tr>
             </table>
             <p class='btn'><input type='submit' value='store'></p>

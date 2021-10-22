@@ -68,8 +68,8 @@
             <div class='title'>
                 <tr><th>{{$post->title}}</th></tr> 
             </div>
-            <div class='body'>
-                <tr><td>{{$post->body}}</td></tr>
+            <div class='contents'>
+                <tr><td>{{$post->contents}}</td></tr>
             </div>
             <div class='updated_at'>
                 <tr><td>{{$post->updated_at}}</td></tr>
