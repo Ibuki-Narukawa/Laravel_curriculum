@@ -42,6 +42,15 @@
         padding:10px;
         width:100vw;
         }
+    .teratail{
+        width:60%;
+        margin:0 auto;
+        padding: 20px 10px;
+    }
+    .teratail .title{
+        text-align:center;
+        margin-bottom:20px;
+        }
 @endsection
 
 @section('content')
@@ -73,7 +82,19 @@
     </div>
     <div class='foot'>
         <p class='pagination'>
-        {{$data->links()}}
+            {{$data->links()}}
         </p>  
+    </div>
+    <div class='teratail'>
+        <h2 class='title'>Questions from Teratail</h2>
+        @foreach($questions as $question)
+            <div>
+                <li>
+                    <a href="https://teratail.com/questions/{{ $question['id'] }}">
+                        {{ $question['title'] }}
+                    </a>  
+                </li>
+             </div>
+        @endforeach
     </div>
 @endsection
