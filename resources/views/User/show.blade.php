@@ -20,12 +20,13 @@
         margin:0 auto;
         margin-bottom:20px;
         }
-    .createBlog {
-        text-align:center;
-        }
     .foot {
         width:60%;
         margin:0 auto;
+        }
+    .footer {
+        text-align:center;
+        padding-top:10px;
         }
     th {
         border: solid 1px #999;
@@ -48,10 +49,7 @@
     @if(Auth::check())
     <p class='user'>USER： {{Auth::user()->name}}</p>
     @endif
-    <h1>Blog List</h1>
-    <div class='createBlog'>
-        <h3>[<a href='/posts/create'>Create</a>]</h3>
-    </div>
+    <h1>{{$data->first()->user->name}}'s Blog</h1>
     <div class='posts'>
         @foreach($data as $post)
         <div class='post'>
@@ -61,7 +59,7 @@
             </div>
             <div class='poster'>
                 @isset($post->user->name)
-                <tr><td>poster: <a href='/user/{{$post->user->id}}'>{{$post->user->name}}</a></td></tr>
+                <tr><td>poster: {{$post->user->name}}</td></tr>
                 @endisset
             </div>
             <div class='contents'>
@@ -75,5 +73,8 @@
         <p class='pagination'>
         {{$data->links()}}
         </p>  
+    </div>
+    <div class='footer'>
+        <p>[<a href='/posts'>back</a>]</p>  
     </div>
 @endsection

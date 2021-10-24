@@ -12,11 +12,11 @@ class Post extends Model
     
     protected $guarded = array('id');
     
-    public function updateNewerThan(){
-        return $this->orderBy('updated_at','desc');
+    function getPaginateByLimit(int $limit_count = 5){
+        return $this::with('user')->orderBy('updated_at', 'DESC')->paginate($limit_count);   
     }
     
-    public function limit(int $n){
-        return $this->limit($n);
+    public function user(){
+        return $this->belongsTo('App\User');
     }
 }
