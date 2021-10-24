@@ -19,6 +19,7 @@ class PostsTableSeeder extends Seeder
         $param = [
             'title' => 'title01',
             'contents' => 'This is sample01.',
+            'user_id' => 1,
         ];
         $post->fill($param)->save();
         
@@ -26,6 +27,7 @@ class PostsTableSeeder extends Seeder
         $param = [
             'title' => 'title02',
             'contents' => 'This is sample02.',
+            'user_id' => 1,
         ];
         $post->fill($param)->save();
         
@@ -33,6 +35,31 @@ class PostsTableSeeder extends Seeder
         $param = [
             'title' => 'title03',
             'contents' => 'This is sample03.',
+            'user_id' => 1,
+        ];
+        $post->fill($param)->save();
+        
+         $post = new Post;
+        $param = [
+            'title' => 'title04',
+            'contents' => 'This is sample04.',
+            'user_id' => 1,
+        ];
+        $post->fill($param)->save();
+        
+         $post = new Post;
+        $param = [
+            'title' => 'title05',
+            'contents' => 'This is sample05.',
+            'user_id' => 1,
+        ];
+        $post->fill($param)->save();
+        
+         $post = new Post;
+        $param = [
+            'title' => 'title06',
+            'contents' => 'This is sample06.',
+            'user_id' => 1,
         ];
         $post->fill($param)->save();
     }

@@ -29,6 +29,10 @@ Route::group(['middleware' => 'auth'], function(){
     Route::put('/posts/{id}','PostController@update');
     
     Route::delete('/posts/{id}','PostController@destroy');
+    
+    Route::get('/user','UserController@index');
+    
+    Route::get('/user/{id}','UserController@show');
 });
     
 Auth::routes();

@@ -10,14 +10,13 @@ use App\Http\Requests\PostRequest;
 
 class PostController extends Controller
 {
-    public function index(Post $post){
-        $data = $post->updateNewerThan()->Paginate(5);
+    public function index(Request $request){
+        $data = Post::with('user')->orderBy('updated_at', 'DESC')->paginate(5);
         return view('posts.index',['data'=>$data]);
-
     }
     
     public function show(Request $request){
-        $post=Post::find($request->id);
+        $post =Post::find($request->id);
         return view('posts.show',['post'=>$post]);
     }
     
@@ -28,6 +27,7 @@ class PostController extends Controller
     public function store(PostRequest $request){
         $post = new Post;
         $form = $request->all();
+        $form += ['user_id' => $request->user()->id];
         $post->fill($form)->save();
         return redirect('/posts/'.$post->id);
     }
@@ -40,6 +40,7 @@ class PostController extends Controller
     public function update(PostRequest $request){
         $post = Post::find($request->id);
         $form = $request->all();
+        $form += ['user_id' => $request->user()->id];
         $post->fill($form)->save();
         return redirect('/posts/'.$post->id);
     }
